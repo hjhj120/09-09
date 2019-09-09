@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		input{ background: #ddd;
+				border: none;
+				padding: 10px;
+				color:black;
+				font-size: 20px;
+				margin-bottom: 10px;
+				border-radius: 5px;
+				box-shadow: 0px 0px 3px gray inset;
+			}
+	</style>
+</head>
+<body>
+	<h1>표준체중계산</h1>
+	<br>
+	키 140cm<input type="range" id="myheight" min="140" max="200">200cm
+	<div id="hmointor"></div>
+	<br>
+	체중 40kg<input type="range" id="myweight" min="40" max="100">100kg
+	<div id="wmointor"></div><br>
+
+	<br><br>
+	<div id="monitor">당신의 과다체중</div>
+	
+
+	<script type="text/javascript">
+		myheight.oninput = function(){
+			hmointor.innerHTML = myheight.value;
+
+			var myh = myheight.value;
+			var myw = myweight.value;
+			var sweight = (myh - 100)*0.9;
+			var overweight = Math.round(myw - sweight);
+
+			monitor.innerHTML = "당신은 " + overweight + "kg만큼 과다체중입니다.";
+		}
+		myweight.oninput = function(){
+			wmointor.innerhtml = myweight.value;
+
+			var myh = myheight.value;
+			var myw = myweight.value;
+			var sweight = (myh - 100)*0.9;
+			var overweight = Math.round(myw - sweight);
+
+			monitor.innerHTML = "당신은 " + overweight + "kg만큼 과다체중입니다.";
+		}
+	
+	</script>
+</body>
+</html>
